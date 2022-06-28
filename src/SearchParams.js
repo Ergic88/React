@@ -27,7 +27,11 @@ async function requestPets(){
 }
     return (
         <div className="search-params">
-            <form>
+            <form onSubmit={
+                e => { 
+                    e.preventDefault(); 
+                    requestPets();
+                }}>
                 <label htmlFor="location">
                     Location
                     <input id="location" value={location}
@@ -41,13 +45,13 @@ async function requestPets(){
                     onChange={
                         (e) => {
                             setAnimal(e.target.value)
-                            setBreed(e.target.value)
+                            setBreed("")
                         }
                     }
                     onBlur={
                         (e) => {
                             setAnimal(e.target.value)
-                            setBreed(e.target.value)
+                            setBreed("")
                         }
                     }>
                         <option/>{ANIMALS.map((animal) => {
