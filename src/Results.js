@@ -4,7 +4,7 @@ const Results = ({pets}) => {
     return (
         <div>
            { !pets.length ? (
-                <h1>No PEts Found</h1>   
+                <h1>No Pets Found</h1>   
             ) : (                
                 pets.map((pet) => (
                     <Pet 
@@ -13,7 +13,7 @@ const Results = ({pets}) => {
                     breed={pet.breed} 
                     key={pet.id} 
                     images={pet.images}
-                    location={pet.location}
+                    location={`${pet.city}, ${pet.state}`}
                     id={pet.id}/>
                 ))        
             )
