@@ -1,14 +1,16 @@
 import React, { StrictMode } from "react";
 import {render} from "react-dom";
 import SearcParams from "./SearchParams";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Details  from "./Details";
 
 const App = () => {
   return (
     <StrictMode>
-      <BrowserRouter>
-       <h1>Adopt Me!</h1>
+      <BrowserRouter> 
+      <header>
+        <Link to="/">Adopt Me!</Link>
+      </header>      
        <Routes>
         <Route path="/details/:id" element={<Details />} />
         <Route path="/" element={<SearcParams />} />
