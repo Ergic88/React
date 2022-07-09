@@ -28,8 +28,9 @@ async function requestPets(){
     setPets(json.pets);
 }
     return (
-        <div className="search-params">
-            <form onSubmit={
+        <div className="my-0 mx-auto w-11/12">
+            <form className="p-10 mb-10 rounded-lg bg-gray-200 shadow-lg flex flex-col justify-center items-center" 
+            onSubmit={
                 e => { 
                     e.preventDefault(); 
                     requestPets();
@@ -37,13 +38,17 @@ async function requestPets(){
                 <label htmlFor="location">
                     Location
                     <input id="location" value={location}
-                    placeholder="Location" 
-                    onChange={(e) => setLocation(e.target.value)}> 
+                        type="text"
+                        placeholder="Location" 
+                        onChange={(e) => setLocation(e.target.value)}
+                        className="w-60 mb-5 block" >                        
                     </input>    
                 </label>
                 <label htmlFor="animal">
                     Animal
-                    <select id="animal" value={animal}
+                    <select id="animal" 
+                    className="w-60 mb-5 block" 
+                    value={animal}
                     onChange={
                         (e) => {
                             setAnimal(e.target.value)
@@ -62,7 +67,9 @@ async function requestPets(){
                 </label>
                 <label htmlFor="breed">
                     Breed
-                    <select id="breed" value={breed}
+                    <select id="breed" 
+                    className="w-60 mb-5 block disabled:opacity-50"
+                    value={breed}
                     onChange={
                         (e) => {
                             setBreed(e.target.value)
@@ -79,7 +86,7 @@ async function requestPets(){
                 </label>
                 <label htmlFor="theme">
                     Theme
-                    <select value={theme} onChange={e => setTheme(e.target.value)} onBlur={e => setTheme(e.target.value)}>
+                    <select value={theme}  className="w-60 mb-5 block" onChange={e => setTheme(e.target.value)} onBlur={e => setTheme(e.target.value)}>
                         <option value="peru">Peru</option>
                         <option value="darkblue">Dark Blue</option>
                         <option value="chartreuse">Chartreuse</option>
@@ -87,7 +94,8 @@ async function requestPets(){
                         <option value="#f06d06">Fog Dog</option>
                     </select>
                 </label>
-                <button style={{backgroundColor: theme}}>Submit</button>
+                <button className="rounded px-6 py-2 color text-white hover:opacity-50 border-none"
+                style={{backgroundColor: theme}}>Submit</button>
             </form>
            <Results pets={pets}/>
         </div>
